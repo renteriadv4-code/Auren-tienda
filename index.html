@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AUREN — Simple. Real.</title>
@@ -45,6 +45,27 @@ footer{padding:35px 7%;border-top:1px solid var(--line);display:flex;justify-con
 .mobile{display:none}
 @media(max-width:900px){nav{gap:15px}.products{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-art{height:390px}.benefits{grid-template-columns:repeat(2,1fr);gap:18px}.benefit{border:0}.about{grid-template-columns:1fr}}
 @media(max-width:600px){body{padding-bottom:65px}.header{height:65px}.brand{font-size:21px}.desktop{display:none}nav{display:none}.actions .search,.actions .account{display:none}.hero-copy{padding:55px 7%}.hero h1{font-size:57px}.hero-art{height:340px;min-height:340px}.person{width:250px;height:350px}.benefits{padding:22px 5%;gap:14px}.benefit{justify-content:flex-start}.benefit strong{font-size:9px}.benefit small{font-size:8px}.shop{padding:60px 5% 70px}.section-top{align-items:flex-start;flex-direction:column}.section-top h2{font-size:28px}.products{gap:10px}.photo{height:220px}.tee{width:105px;height:140px}.hoodie{width:115px;height:145px}.pants{width:90px;height:160px}.info{padding:11px}.info h3{font-size:11px}.price{font-size:11px}.size{width:23px;height:23px}.about{padding:55px 5%;gap:35px}.about-img{height:230px}.about h2{font-size:34px}.news{padding:70px 5%}.news h2{font-size:33px}.news form{flex-direction:column}.news .btn{width:100%}footer{display:none}.mobile{position:fixed;bottom:0;left:0;right:0;height:65px;background:white;border-top:1px solid var(--line);z-index:35;display:flex;justify-content:space-around;align-items:center}.mobile button,.mobile a{border:0;background:none;font-size:20px;text-align:center;position:relative}.mobile small{display:block;font-size:8px;margin-top:3px}.mobile b{position:absolute;background:var(--blue);color:#fff;border-radius:50%;font-size:8px;padding:3px 5px;top:-5px;right:-6px}}
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 9999;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05);
+}
 </style>
 </head>
 <body>
@@ -99,5 +120,11 @@ function closeCart(){document.getElementById("cart").classList.remove("open");do
 function checkout(){if(!cart.length)return alert("Tu carrito está vacío.");let lines=cart.map(i=>{let p=products.find(x=>x.id===i.id);return `• ${p.name} x${i.qty} — ${money(p.price*i.qty)}`}).join("\n");let total=cart.reduce((s,i)=>s+products.find(p=>p.id===i.id).price*i.qty,0);let msg=`Hola Auren 👋 Quiero hacer este pedido:\n\n${lines}\n\nTotal: ${money(total)}\n\nQuiero confirmar tallas, dirección y método de pago.`;let phone="573000000000";window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,"_blank")}
 render();renderCart();
 </script>
+  <a href="https://wa.me/573001234567?text=Hola%20Auren%2C%20tengo%20una%20pregunta%20sobre%20un%20producto"
+   class="whatsapp-float"
+   target="_blank">
+    <span>💬</span>
+    ¿Tienes alguna duda?
+</a>
 </body>
 </html>
